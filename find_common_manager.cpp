@@ -82,16 +82,16 @@ lookup* process(string line, string & n1, string & n2){
                     tail->next = tmp1;
                     tmp1->next = NULL;
                     tail = tmp1;
-                    tmp1->set_addr(smanager);
                     smanager=new sort(manager);
+                    tmp1->set_addr(smanager);
                 }
                 if((tmpw=find_name(head,worker))==NULL){//new works comes :D who case who is his manager
                     tmp1 = new lookup(worker);
                     tail->next = tmp1;
                     tmp1->next =NULL;
                     tail = tmp1;
-                    tmp1->set_addr(sworker);
                     sworker=new sort(worker);
+                    tmp1->set_addr(sworker);
                 }
                 if(tmpm!=NULL){
                     sworker->set_tail(tmpm);
@@ -176,9 +176,19 @@ int main()
     }*/
     finding(find1,find2);
     
+    lookup* t =head;
+    sort* tt;
+    while(t!=NULL){
+        tt = t->address;
+        cout << "list: ";
+        while(tt!=NULL){
+            cout << tt->name;
+            tt= tt->manager;
+        }
+        cout << endl;
+        t=t->next;
+    }
+    
     
    return 0;
 }
-
-
-//Frank->Mary,Mary->Sam,Mary->Bob,Sam->Katie,Sam->Pete,Bob->John,Bob,Katie
