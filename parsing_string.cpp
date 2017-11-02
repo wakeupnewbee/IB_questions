@@ -1,3 +1,5 @@
+//IBM cognitive computing|IBM "cognitive" computing is revolution|ibm cognitive computing|'the Cognitive Computing' is revolution?
+
 #include <iostream>
 #include <string>
 #include <vector>
